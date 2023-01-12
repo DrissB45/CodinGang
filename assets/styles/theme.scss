@@ -15,4 +15,14 @@ $tertiary: #DC8A10;
 
 body {
     font-family: $font-text;
+    background-color: $primary;
+    color: $secondary;
+}
+
+h1 {
+    font-family: $font-title;
+}
+
+th, td {
+    color: $secondary;
 }
