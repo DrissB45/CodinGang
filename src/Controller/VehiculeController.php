@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Service\CalculateCarbone;
 use App\Repository\VehiculeRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/vehicule', name: 'vehicule_')]
 class VehiculeController extends AbstractController
@@ -22,11 +23,13 @@ class VehiculeController extends AbstractController
     }
 
     #[Route('/show/{id}', requirements: ['id' => '\d+'], name: 'show')]
-    public function show(Vehicule $vehicule): Response
+    public function show(Vehicule $vehicule, CalculateCarbone $calculateCarbonne): Response
     {
 
         return $this->render('vehicule/show.html.twig', [
             'vehicule' => $vehicule,
+            'calculateCarbonne' => $calculateCarbonne->calculate($vehicule),
+            'carbonneBykm' => $calculateCarbonne->calculateByKm($vehicule)
         ]);
     }
 }

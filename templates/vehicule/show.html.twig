@@ -7,9 +7,10 @@
 			<h1 class=" d-flex justify-content-center text-light mt-5">{{vehicule.marque}}</h1>
 		</header>
 		<div class="d-flex justify-content-between infoImport">
-		<addrs class="text-light">{{vehicule.annee}}</addrs>
-		<addrs class="text-light">{{vehicule.kilometrage}} km</addrs>
-		<addrs class="text-light">{{vehicule.etat}}</addrs>
+			<addrs class="text-light">{{vehicule.annee}}</addrs>
+			<addrs class="text-light">{{vehicule.kilometrage}}
+				km</addrs>
+			<addrs class="text-light">{{vehicule.etat}}</addrs>
 		</div>
 		<img class="imgCard mt-3" src="{{ asset('build/images/hackathon.jpg') }}"></img>
 	<div class="card bord mt-5">
@@ -34,5 +35,17 @@
 				<dd>{{vehicule.etat}}</dd>
 			</div>
 		</dl>
-	</div>
-{% endblock %}
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Emission C02</dt>
+				<dd>{{vehicule.carbonne}}</dd>
+			</div>
+		</dl>
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Emission C02 au km</dt>
+				<dd>{{carbonneBykm}}</dd>
+			</div>
+		</div>
+	</dl>
+</div>{% endblock %}

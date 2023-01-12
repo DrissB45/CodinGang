@@ -34,6 +34,9 @@ class Vehicule
     #[ORM\Column]
     private ?int $kilometrage = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $carbonne = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Vehicule
     public function setKilometrage(int $kilometrage): self
     {
         $this->kilometrage = $kilometrage;
+
+        return $this;
+    }
+
+    public function getCarbonne(): ?int
+    {
+        return $this->carbonne;
+    }
+
+    public function setCarbonne(?int $carbonne): self
+    {
+        $this->carbonne = $carbonne;
 
         return $this;
     }
