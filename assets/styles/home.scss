@@ -1,0 +1,28 @@
+
+.welcome {
+    --taillerbanniere: 200px;
+    height: var(--taillerbanniere);
+}
+
+.car {
+    background-image: url(../images/car.png);
+    height: calc(100vh - var(--taillerbanniere));
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-family: $font-title;
+    color: $primary;
+    text-shadow: 0.1px 0.1px $dark;
+    font-size: 3.5rem;
+    margin-left: 10px;
+}
+
+.next {
+    position: absolute;
+    top: 15px;
+    justify-content: end;
+    transform: translate(100px,100px);
+    transition: width 1s ease-in;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Éditer un véhicule{% endblock %}
+
+{% block header %}
+{% include 'components/_headerAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <h1>Éditer un véhicule</h1>
+
+    {{ include('vehicule_admin/_form.html.twig', {'button_label': 'Éditer'}) }}
+
+    <a href="{{ path('app_vehicule_admin_index') }}">Retour aux véhicules</a>
+
+    {{ include('vehicule_admin/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin - Liste des véhicules{% endblock %}
+
+{% block header %}
+{% include 'components/_headerAdmin.html.twig' %}
+{% endblock %}
+
+{% block body %}
+    <h1>Liste des véhicules</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marque</th>
+                <th>Volume</th>
+                <th>Carburant</th>
+                <th>Image</th>
+                <th>Année</th>
+                <th>État</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vehicule in vehicules %}
+            <tr>
+                <td>{{ vehicule.id }}</td>
+                <td>{{ vehicule.marque }}</td>
+                <td>{{ vehicule.volume }}</td>
+                <td>{{ vehicule.carburant }}</td>
+                <td>{{ vehicule.image }}</td>
+                <td>{{ vehicule.annee }}</td>
+                <td>{{ vehicule.etat }}</td>
+                <td>
+                    <a href="{{ path('app_vehicule_admin_show', {'id': vehicule.id}) }}" class="text-white">Voir</a>
+                    <a href="{{ path('app_vehicule_admin_edit', {'id': vehicule.id}) }}" class="text-white">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_vehicule_admin_new') }}" class="text-white">Ajouter un véhicule</a>
+{% endblock %}
