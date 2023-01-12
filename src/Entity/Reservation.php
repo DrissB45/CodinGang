@@ -14,9 +14,6 @@ class Reservation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?\DateInterval $dates = null;
-
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?User $driver = null;
 
@@ -26,21 +23,12 @@ class Reservation
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $datedefin = null;
 
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?Vehicule $car = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getDates(): ?\DateInterval
-    {
-        return $this->dates;
-    }
-
-    public function setDates(\DateInterval $dates): self
-    {
-        $this->dates = $dates;
-
-        return $this;
     }
 
     public function getDriver(): ?User
@@ -75,6 +63,18 @@ class Reservation
     public function setDatedefin(\DateTimeInterface $datedefin): self
     {
         $this->datedefin = $datedefin;
+
+        return $this;
+    }
+
+    public function getCar(): ?Vehicule
+    {
+        return $this->car;
+    }
+
+    public function setCar(?Vehicule $car): self
+    {
+        $this->car = $car;
 
         return $this;
     }
