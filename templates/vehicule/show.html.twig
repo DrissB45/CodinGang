@@ -4,11 +4,15 @@
 	<div class="container">
 		<header>
 			<h1 class=" d-flex justify-content-center text-light mt-5">{{vehicule.marque}}</h1>
+			{% if vehicule.isreserved == true %}
+				<h1 class="text-secondary">Véhicule déjà réservé !</h1>
+			{% endif %}
 		</header>
 		<div class="d-flex justify-content-between infoImport">
-		<addrs class="text-light">{{vehicule.annee}}</addrs>
-		<addrs class="text-light">{{vehicule.kilometrage}} km</addrs>
-		<addrs class="text-light">{{vehicule.etat}}</addrs>
+			<addrs class="text-light">{{vehicule.annee}}</addrs>
+			<addrs class="text-light">{{vehicule.kilometrage}}
+				km</addrs>
+			<addrs class="text-light">{{vehicule.etat}}</addrs>
 		</div>
 		<img class="imgCard mt-3" src="{{ asset('build/images/hackathon.jpg') }}"></img>
 	<div class="card bord mt-5">
@@ -35,5 +39,7 @@
 		</dl>
 	</div>
 
-	<a class="btn btn-secondary btn-lg" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
+	{% if vehicule.isreserved == false %}
+		<a class="btn btn-secondary btn-lg" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
+	{% endif %}
 {% endblock %}

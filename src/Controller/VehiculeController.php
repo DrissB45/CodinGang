@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Vehicule;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
+use App\Service\CheckReservation;
 use App\Repository\VehiculeRepository;
 use App\Repository\ReservationRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -26,8 +27,10 @@ class VehiculeController extends AbstractController
     }
 
     #[Route('/show/{id}', requirements: ['id' => '\d+'], name: 'show')]
-    public function show(Vehicule $vehicule): Response
+    public function show(Vehicule $vehicule, ReservationRepository $reservationRepository): Response
     {
+        $reservations = $reservationRepository->findAll();
+        $sentence = 'Véhicule déjà réservé !';
 
         return $this->render('vehicule/show.html.twig', [
             'vehicule' => $vehicule,
@@ -35,14 +38,18 @@ class VehiculeController extends AbstractController
     }
 
     #[Route('/show/{id}/reservation', name: 'reservation')]
-    public function reservation(Request $request, ReservationRepository $reservationRepository): Response
+    public function reservation(Request $request, ReservationRepository $reservationRepository, VehiculeRepository $vehiculeRepository): Response
     {
         $reservation = new Reservation();
         $form = $this->createForm(ReservationType::class, $reservation);
         $form->handleRequest($request);
 
+        $vehicule = $vehiculeRepository->findOneBy(['id' => $reservation->getCar()]);
+
         if ($form->isSubmitted() && $form->isValid()) {
+            $vehicule->setIsReserved(true);
             $reservationRepository->save($reservation, true);
+            $vehiculeRepository->save($vehicule, true);
 
             return $this->redirectToRoute('vehicule_reservation_confirmation', ['id' => $reservation->getId()], Response::HTTP_SEE_OTHER);
         }
