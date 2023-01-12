@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catalog
+{% endblock %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+	<h1 class="title-catalog text-center text-secondary display-1 my-5">Catalogue</h1>
+	<div class="container-fluid">
+		<div class="row row-cols-2 mx-5">
+			{% for vehicule in vehicules %}
+				<a href="{{ path("vehicule_show", { id: vehicule.id }) }}" class="catalog-vehicule col vehicule card text-decoration-none mb-4">
+					<div>
+						<img src="{{ asset('build/images/rolls.jpg') }}" class="img card-img-top object-fit-none" alt="Rolls Royce">
+					</div>
+					<div class="vehicule-name card-body">
+						<h2 class="card-title text-center h1">{{vehicule.marque}}</h2>
+						<div>
+							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+								Moteur
+								<span class="text-end">{{vehicule.carburant}}</span>
+							</p>
+						</div>
+						<div>
+							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+								Année
+								<span class="text-end">{{vehicule.annee}}</span>
+							</p>
+						</div>
+						<div>
+							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+								Etat
+								<span class="text-end">{{vehicule.etat}}</span>
+							</p>
+						</div>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+</div>{% endblock %}
