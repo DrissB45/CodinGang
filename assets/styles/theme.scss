@@ -18,3 +18,11 @@ body {
     background-color: $primary;
     color: $secondary;
 }
+
+h1 {
+    font-family: $font-title;
+}
+
+th, td {
+    color: $secondary;
+}
