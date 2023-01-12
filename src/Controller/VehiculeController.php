@@ -2,7 +2,8 @@
 
 namespace App\Controller;
 
-use App\Repository\VehiculesRepository;
+use App\Entity\Vehicule;
+use App\Repository\VehiculeRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,12 +12,21 @@ use Symfony\Component\Routing\Annotation\Route;
 class VehiculeController extends AbstractController
 {
     #[Route('/', name: 'index')]
-    public function index(VehiculesRepository $vehiculesRepository): Response
+    public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        $vehicules = $vehiculesRepository->findAll();
+        $vehicule = $vehiculeRepository->findAll();
 
         return $this->render('vehicule/index.html.twig', [
-            'vehicules' => $vehicules,
+            'vehicule' => $vehicule,
+        ]);
+    }
+
+    #[Route('/show/{id}', requirements: ['id' => '\d+'], name: 'show')]
+    public function show(Vehicule $vehicule): Response
+    {
+
+        return $this->render('vehicule/show.html.twig', [
+            'vehicule' => $vehicule,
         ]);
     }
 }
