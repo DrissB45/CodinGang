@@ -2,10 +2,37 @@
 
 {% block body %}
 
-
-<div class="example-wrapper">
-
-    <h1 class="mt-0">{{ vehicule.id }}</h1> 
-
-</div>
+	<div class="container">
+		<header>
+			<h1 class=" d-flex justify-content-center text-light mt-5">{{vehicule.marque}}</h1>
+		</header>
+		<div class="d-flex justify-content-between infoImport">
+		<addrs class="text-light">{{vehicule.annee}}</addrs>
+		<addrs class="text-light">{{vehicule.kilometrage}} km</addrs>
+		<addrs class="text-light">{{vehicule.etat}}</addrs>
+		</div>
+		<img class="imgCard mt-3" src="{{ asset('build/images/hackathon.jpg') }}"></img>
+	<div class="card bord mt-5">
+		<div class="d-flex justify-content-center">
+			<h2 class="mt-5">Fiche technique</h2>
+		</div>
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Année</dt>
+				<dd>{{vehicule.annee}}</dd>
+			</div>
+		</dl>
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Carburant</dt>
+				<dd>{{vehicule.carburant}}</dd>
+			</div>
+		</dl>
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Etat</dt>
+				<dd>{{vehicule.etat}}</dd>
+			</div>
+		</dl>
+	</div>
 {% endblock %}
