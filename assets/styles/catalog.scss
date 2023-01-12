@@ -1,0 +1,24 @@
+body {
+    background-color: $primary;
+}
+
+.title-catalog {
+    font-family: $font-title;
+    color: $secondary;
+}
+
+.vehicule {
+    color: $secondary;
+}
+
+.vehicule-name {
+    color: $primary;
+}
+
+.catalog-vehicule {
+    border-radius: 30px;
+}
+
+.catalog-vehicule:first-child {
+    width: 100%;
+}
