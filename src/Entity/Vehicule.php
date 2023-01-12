@@ -31,6 +31,9 @@ class Vehicule
     #[ORM\Column(length: 255)]
     private ?string $etat = null;
 
+    #[ORM\Column]
+    private ?int $kilometrage = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Vehicule
     public function setEtat(string $etat): self
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getKilometrage(): ?int
+    {
+        return $this->kilometrage;
+    }
+
+    public function setKilometrage(int $kilometrage): self
+    {
+        $this->kilometrage = $kilometrage;
 
         return $this;
     }
