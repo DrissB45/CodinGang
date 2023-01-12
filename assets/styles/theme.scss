@@ -1,5 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
-
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:wght@300&display=swap');
 
 $font-title: 'Audiowide', cursive;
@@ -8,6 +6,8 @@ $font-text: 'Lato', sans-serif;
 $primary: #1C2025;
 $secondary: #F6F6F6;
 $tertiary: #DC8A10;
+
+@import "~bootstrap/scss/bootstrap";
 
 * {
     box-sizing: border-box;
