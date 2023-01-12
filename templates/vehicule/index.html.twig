@@ -18,6 +18,9 @@
 					</div>
 					<div class="vehicule-name card-body">
 						<h2 class="card-title text-center h1">{{vehicule.marque}}</h2>
+						{% if vehicule.isreserved == true %}
+							<p>Attention : ce véhicule est déjà réservé !</p>
+						{% endif %}
 						<div>
 							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
 								Moteur

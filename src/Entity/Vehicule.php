@@ -34,6 +34,9 @@ class Vehicule
     #[ORM\Column]
     private ?int $kilometrage = null;
 
+    #[ORM\Column]
+    private ?bool $isReserved = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Vehicule
     public function setKilometrage(int $kilometrage): self
     {
         $this->kilometrage = $kilometrage;
+
+        return $this;
+    }
+
+    public function isIsReserved(): ?bool
+    {
+        return $this->isReserved;
+    }
+
+    public function setIsReserved(bool $isReserved): self
+    {
+        $this->isReserved = $isReserved;
 
         return $this;
     }
