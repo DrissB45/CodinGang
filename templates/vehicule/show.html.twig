@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
 	<div class="container">
 		<header>
 			<h1 class=" d-flex justify-content-center text-light mt-5">{{vehicule.marque}}</h1>
@@ -30,9 +29,11 @@
 		</dl>
 		<dl>
 			<div class="d-flex justify-content-between m-4">
-				<dt class="list-group-item">Etat</dt>
+				<dt class="list-group-item">État</dt>
 				<dd>{{vehicule.etat}}</dd>
 			</div>
 		</dl>
 	</div>
+
+	<a class="btn btn-secondary btn-lg" href="{{ path("app_reservation") }}">Réserver ce véhicule</a>
 {% endblock %}
