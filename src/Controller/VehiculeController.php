@@ -14,10 +14,10 @@ class VehiculeController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(VehiculeRepository $vehiculeRepository): Response
     {
-        $vehicule = $vehiculeRepository->findAll();
+        $vehicules = $vehiculeRepository->findAll();
 
         return $this->render('vehicule/index.html.twig', [
-            'vehicule' => $vehicule,
+            'vehicules' => $vehicules,
         ]);
     }
 
