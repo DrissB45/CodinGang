@@ -1,4 +1,3 @@
-@import "~bootstrap/scss/bootstrap";
 
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Lato:wght@300&display=swap');
 
@@ -9,10 +8,48 @@ $primary: #1C2025;
 $secondary: #F6F6F6;
 $tertiary: #DC8A10;
 
+@import "~bootstrap/scss/bootstrap";
+
 * {
     box-sizing: border-box;
 }
 
 body {
+    background-color: $primary;
     font-family: $font-text;
+}
+
+h1 {
+    font-size: 120px;
+}
+
+h2 {
+    font-size: 80px;
+}
+
+ul li {
+    font-size: 50px;
+} 
+
+.imgCard
+{
+    width: 100%;
+    border-radius: 5%;
+}
+
+dl {
+    font-size: 50px;
+}
+
+.bord {
+    border-radius: 5%;
+}
+
+addrs {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.infoImport {
+    margin-top: 150px
 }

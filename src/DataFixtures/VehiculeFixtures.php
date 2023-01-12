@@ -22,6 +22,7 @@ class VehiculeFixtures extends Fixture
             $vehicule->setImage('Yolo');
             $vehicule->setAnnee($faker->year());
             $vehicule->setEtat('good');
+            $vehicule->setKilometrage($faker->numberBetween(200, 10000));
             $manager->persist($vehicule);
         }
         $manager->flush();
