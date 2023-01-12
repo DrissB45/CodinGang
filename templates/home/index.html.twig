@@ -1,17 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block title %}Welcome !
+{% endblock %}
 
 {% block body %}
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/wilder/Projets/Codingang/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/wilder/Projets/Codingang/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-
-    <p>aerqfvuhqrfuhuhzfu</p>
-</div>
+	<div class="welcome">
+		<div class="card-body">
+			<div class="home">
+				<h1 class="card-title start mt-3 mb-5 me-5">
+					NEED FOR FLEET
+				</h1>
+			</div>
+			<div class="next positon-absolute">
+				<a href=""><img src="{{ asset('build/images/click.png') }}" class="next" width="80" height="80" alt="Our catalog"/></a>
+			</div>
+		</div>
+		<div class="car"></div>
+	</div>
 {% endblock %}
