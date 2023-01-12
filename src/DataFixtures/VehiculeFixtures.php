@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity;
+
 use App\Entity\Vehicule;
 use Faker\Factory;
 use Doctrine\Persistence\ObjectManager;

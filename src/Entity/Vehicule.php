@@ -36,6 +36,8 @@ class Vehicule
 
     #[ORM\Column(nullable: true)]
     private ?int $carbonne = null;
+    #[ORM\Column]
+    private ?bool $isReserved = null;
 
     public function getId(): ?int
     {
@@ -134,6 +136,14 @@ class Vehicule
     public function setCarbonne(?int $carbonne): self
     {
         $this->carbonne = $carbonne;
+    public function isIsReserved(): ?bool
+    {
+        return $this->isReserved;
+    }
+
+    public function setIsReserved(bool $isReserved): self
+    {
+        $this->isReserved = $isReserved;
 
         return $this;
     }
