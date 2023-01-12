@@ -12,12 +12,12 @@ class VehiculeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('marque')
-            ->add('volume')
-            ->add('carburant')
-            ->add('image')
-            ->add('annee')
-            ->add('etat')
+            ->add('Marque')
+            ->add('Volume')
+            ->add('Carburant')
+            ->add('Image')
+            ->add('Annee')
+            ->add('Etat')
         ;
     }
 
