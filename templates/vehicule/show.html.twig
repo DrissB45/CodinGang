@@ -64,11 +64,11 @@
 
 	</div>
 	{% if vehicule.isreserved == false %}
-		<div class="d-flex justify-content-center mb-3">
+		<div class="d-flex justify-content-center mb-4">
 			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
 		</div>
 	{% else %}
-		<div class="d-flex justify-content-center mb-3">
+		<div class="d-flex justify-content-center mb-4">
 			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_index") }}">Retourner au catalogue</a>
 		</div>
 		{% endif %}
