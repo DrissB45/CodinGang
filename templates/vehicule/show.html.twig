@@ -1,9 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block header %}
-	{% include "components/_navbar.html.twig" %}
-{% endblock %}
-
 {% block stylesheets %}
 	{{ encore_entry_link_tags('app') }}
 {% endblock %}
@@ -13,10 +9,10 @@
 	<header>
 		<h1 class=" d-flex justify-content-center text-light mt-5 display-1">{{vehicule.marque}}</h1>
 		{% if vehicule.isreserved == true %}
-			<h1 class="text-secondary">Véhicule déjà réservé !</h1>
+			<h1 class="text-secondary text-center my-3">Véhicule déjà réservé !</h1>
 		{% endif %}
 	</header>
-	<div class="container">
+	<div class="container mt-5">
 		<img class="imgCard img-fluid mt-3 mx-auto d-block" src="{{ asset('build/images/hackathon.jpg') }}"></img>
 	<div class="strong card bord mt-5">
 		<div class="mx-5">
@@ -62,7 +58,13 @@
 	</div>
 	{% if vehicule.isreserved == false %}
 		<div class="d-flex justify-content-center">
-			<a class="btn btn-secondary btn-lg mt-5 align--center" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
+			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
 		</div>
-	{% endif %}
-</div>{% endblock %}
+	{% else %}
+		<div class="d-flex justify-content-center">
+			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_index") }}">Retourner au catalogue</a>
+		</div>
+		{% endif %}
+
+	</div>
+{% endblock %}
