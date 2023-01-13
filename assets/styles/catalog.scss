@@ -1,24 +1,17 @@
-body {
-    background-color: $primary;
-}
-
 .title-catalog {
     font-family: $font-title;
     color: $secondary;
 }
 
-.vehicule {
-    color: $secondary;
+.card-title {
+    font-family: $font-title;
 }
 
 .vehicule-name {
     color: $primary;
 }
 
-.catalog-vehicule {
-    border-radius: 30px;
-}
-
-.catalog-vehicule:first-child {
-    width: 100%;
+.svg {
+    color: $tertiary;
+    height: 32px;
 }
