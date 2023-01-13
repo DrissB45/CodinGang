@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block body %}
-    <h1>Éditer un véhicule</h1>
+    <h1 class="text-secondary mt-3 ms-4">Éditer un véhicule</h1>
 
-    {{ include('vehicule_admin/_form.html.twig', {'button_label': 'Éditer'}) }}
+    {{ include('vehicule_admin/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
     <a href="{{ path('app_vehicule_admin_index') }}">Retour aux véhicules</a>
 
