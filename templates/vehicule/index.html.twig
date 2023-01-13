@@ -9,53 +9,60 @@
 
 {% block body %}
 	{% if app.user %}
-		<div class="presentation bg-secondary d-flex justify-content-center align-items-center">
+		<div class="presentation bg-secondary d-flex flex-column justify-content-center align-items-center">
 			<h3 class="text-center">Bienvenue
-				{{app.user.firstname}} {{app.user.lastname}}
+				{{app.user.firstname}}
+				{{app.user.lastname}}
 				!</h3>
+			{% if app.user.hasreserved == true %}
+			<a href="{{ path("vehicule_bookings") }}">Voir vos réservations</a>
+			{% else %}
+				<p>Vous n'avez aucune réservation en cours.</p>
+			{% endif %}
+			{% endif %}
 		</div>
-	{% endif %}
 
-	<h1 class="title-catalog text-center text-secondary display-1 my-5">Catalogue</h1>
-	<div class="container-fluid">
-		<div class="row row-cols-2 mx-5">
-			{% for vehicule in vehicules %}
-				<a href="{{ path("vehicule_show", { id: vehicule.id }) }}" class="catalog-vehicule col vehicule card text-decoration-none mb-4">
-					<div>
-						<img src="{{ asset('build/images/rolls.jpg') }}" class="img card-img-top object-fit-none" alt="Rolls Royce">
-					</div>
-					<div class="vehicule-name card-body">
-						<h2 class="card-title text-center h1">{{vehicule.marque}}</h2>
-						{% if vehicule.isreserved == true %}
-							<p>Attention : ce véhicule est déjà réservé !</p>
-						{% endif %}
+		<h1 class="title-catalog text-center text-secondary display-1 my-5">Catalogue</h1>
+		<div class="container-fluid">
+			<div class="row row-cols-2 mx-5">
+				{% for vehicule in vehicules %}
+					<a href="{{ path("vehicule_show", { id: vehicule.id }) }}" class="catalog-vehicule col vehicule card text-decoration-none mb-4">
 						<div>
-							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
-								Moteur
-								<span class="text-end">{{vehicule.carburant}}</span>
-							</p>
+							<img src="{{ asset('build/images/rolls.jpg') }}" class="img card-img-top object-fit-none" alt="Rolls Royce">
 						</div>
-						<div>
-							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
-								Année
-								<span class="text-end">{{vehicule.annee}}</span>
-							</p>
+						<div class="vehicule-name card-body">
+							<h2 class="card-title text-center h1">{{vehicule.marque}}</h2>
+							{% if vehicule.isreserved == true %}
+								<p>Attention : ce véhicule est déjà réservé !</p>
+							{% endif %}
+							<div>
+								<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+									Moteur
+									<span class="text-end">{{vehicule.carburant}}</span>
+								</p>
+							</div>
+							<div>
+								<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+									Année
+									<span class="text-end">{{vehicule.annee}}</span>
+								</p>
+							</div>
+							<div>
+								<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+									État
+									<span class="text-end">{{vehicule.etat}}</span>
+								</p>
+							</div>
+							<div>
+								<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
+									C02
+									<span class="text-end">{{vehicule.carbonne}}</span>
+								</p>
+							</div>
 						</div>
-						<div>
-							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
-								État
-								<span class="text-end">{{vehicule.etat}}</span>
-							</p>
-						</div>
-						<div>
-							<p class="vehicule-detail card-text d-flex flex-row justify-content-between">
-								C02
-								<span class="text-end">{{vehicule.carbonne}}</span>
-							</p>
-						</div>
-					</div>
-				</a>
-			{% endfor %}
+					</a>
+				{% endfor %}
+			</div>
 		</div>
 	</div>
-</div>{% endblock %}
+{% endblock %}

@@ -21,7 +21,7 @@ final class Version20230112191714 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('ALTER TABLE reservation ADD car_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE reservation ADD CONSTRAINT FK_42C84955C3C6F69F FOREIGN KEY (car_id) REFERENCES vehicule (id)');
+        $this->addSql('ALTER TABLE reservation ADD CONSTRAINT FK_42C84955C3C6F69F FOREIGN KEY (car_id) REFERENCES vehicule (id) ON DELETE SET NULL');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_42C84955C3C6F69F ON reservation (car_id)');
     }
 
