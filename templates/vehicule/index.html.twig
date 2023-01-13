@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Catalog
+{% block title %}Catalogue
 {% endblock %}
 
 {% block header %}
@@ -12,7 +12,17 @@
 {% endblock %}
 
 {% block body %}
+	{% if app.user %}
+		<div class="presentation bg-secondary d-flex justify-content-center align-items-center">
+			<h3 class="text-center">Bienvenue
+				{{app.user.firstname}}
+				{{app.user.lastname}}
+				!</h3>
+		</div>
+	{% endif %}
+
 	<h1 class="title-catalog text-center text-secondary display-1 my-5">Catalogue</h1>
+
 	<div class="container">
 		<div class="col-12">
 			<div class="row d-flex justify-content-center">
@@ -21,7 +31,10 @@
 						<img src=" {{ asset('build/images/rolls.jpg') }} " class="card-img-top" alt=" rolls royce">
 						<div class="vehicule-name card-body">
 							<h2 class="card-title text-center display-6">{{vehicule.marque}}</h2>
-							<div class="type d-flex align-items-center justify-content-around">
+							{% if vehicule.isreserved == true %}
+								<p>Attention : ce véhicule est déjà réservé !</p>
+							{% endif %}
+							<div class="type d-flex align-items-center justify-content-around col">
 								<span class="fs-3 card-text">
 									<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="svg bi bi-gear" viewbox="0 0 16 16">
 										<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -36,6 +49,8 @@
 										<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
 									</svg>
 									{{vehicule.kilometrage}}</span>
+								<span class="card-text fs-3">
+									{{vehicule.carbonne}}</span>
 							</div>
 						</div>
 					</a>

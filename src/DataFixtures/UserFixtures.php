@@ -17,8 +17,8 @@ class UserFixtures extends Fixture
     {
         $user = new User();
         $user->setEmail('user@email.com');
-        $user->setFirstName('Teddy');
-        $user->setLastName('Slexiqe');
+        $user->setFirstName('Ken');
+        $user->setLastName('Block');
         $hashedPassword = $this->passwordHasher->hashPassword(
             $user,
             'azerty'
@@ -28,8 +28,8 @@ class UserFixtures extends Fixture
 
         $admin = new User();
         $admin->setEmail('admin@email.com');
-        $admin->setFirstName('Jacky');
-        $admin->setLastName('Chan');
+        $admin->setFirstName('Teddy');
+        $admin->setLastName('Slexique');
         $admin->setRoles(['ROLE_ADMIN']);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $admin,
