@@ -4,16 +4,19 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center text-secondary mt-5 fs-1">Votre véhicule est réservé !</h1>
+	<h2 class="text-center text-secondary mt-5 fs-1">Votre véhicule est réservé !</h2>
 	<div class="login border rounded-2 border-secondary bg-light shadow mx-2">
 		<h1 class="text-center">Merci !</h1>
-		<p>Nous confirmons la réservation de votre véhicule. Voici les détails de la réservation :</p>
-		<p>Modèle :
-			{{reservation.car.marque}}</p>
-		<p>Date de début :
-			{{reservation.date|date('Y-m-d')}}</p>
-		<p>Date de fin :
-			{{reservation.datedefin|date('Y-m-d')}}</p>
+		<div class="mx-2">
+			<p>Nous confirmons la réservation de votre véhicule. Voici les détails de la réservation :</p>
+			<p>Modèle :
+				{{reservation.car.marque}}</p>
+			<p>Date de début :
+				{{reservation.date|date('d-m-Y')}}</p>
+			<p>Date de fin :
+				{{reservation.datedefin|date('d-m-Y')}}</p>
+		</div>
+		<img src="{{ asset('build/images/rolls.jpg') }}" class="img card-img-top object-fit-none" alt="Voiture réservée">
 	</div>
 </div>
 <div class="d-flex justify-content-center">
