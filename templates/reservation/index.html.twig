@@ -4,13 +4,15 @@
 {% endblock %}
 
 {% block body %}
-	<h1 class="text-center text-secondary mt-5">Réservez ce véhicule</h1>
-	<div class="login border rounded-2 border-secondary bg-light shadow col-11 m-auto">
-		{{ form_start(form) }}
-		{{ form_row(form) }}
-	</div>
-	<div class="d-flex justify-content-center my-5">
-		<button class="btn btn-secondary btn-lg">{{ button_label|default('Réserver') }}</button>
-		{{ form_end(form) }}
+	<div class="container">
+		<h1 class="text-center text-secondary mt-5 display-6">Réservez ce véhicule</h1>
+		<div class="login border rounded-2 border-secondary bg-light shadow col-10 m-auto">
+			{{ form_start(form) }}
+			{{ form_row(form) }}
+		</div>
+		<div class="d-flex justify-content-center my-5">
+			<button class="btn btn-secondary btn-lg">{{ button_label|default('Réserver') }}</button>
+			{{ form_end(form) }}
+		</div>
 	</div>
 {% endblock %}
