@@ -37,9 +37,19 @@
 				<dd>{{vehicule.etat}}</dd>
 			</div>
 		</dl>
-	</div>
-
-	{% if vehicule.isreserved == false %}
-		<a class="btn btn-secondary btn-lg" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
-	{% endif %}
-{% endblock %}
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Emission C02</dt>
+				<dd>{{vehicule.carbonne}}</dd>
+			</div>
+		</dl>
+		<dl>
+			<div class="d-flex justify-content-between m-4">
+				<dt class="list-group-item">Emission C02 au km</dt>
+				<dd>{{carbonneBykm}}</dd>
+			</div>
+	</dl>
+</div>
+{% if vehicule.isreserved == false %}
+	<a class="btn btn-secondary btn-lg" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
+{% endif %}{% endblock %}

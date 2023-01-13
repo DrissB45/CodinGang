@@ -34,6 +34,8 @@ class Vehicule
     #[ORM\Column]
     private ?int $kilometrage = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $carbonne = null;
     #[ORM\Column]
     private ?bool $isReserved = null;
 
@@ -124,6 +126,16 @@ class Vehicule
         $this->kilometrage = $kilometrage;
 
         return $this;
+    }
+
+    public function getCarbonne(): ?int
+    {
+        return $this->carbonne;
+    }
+
+    public function setCarbonne(?int $carbonne)
+    {
+        $this->carbonne = $carbonne;
     }
 
     public function isIsReserved(): ?bool

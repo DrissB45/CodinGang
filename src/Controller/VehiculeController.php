@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Vehicule;
+use App\Service\CalculateCarbone;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
 use App\Service\CheckReservation;
@@ -27,13 +28,13 @@ class VehiculeController extends AbstractController
     }
 
     #[Route('/show/{id}', requirements: ['id' => '\d+'], name: 'show')]
-    public function show(Vehicule $vehicule, ReservationRepository $reservationRepository): Response
+    public function show(Vehicule $vehicule, ReservationRepository $reservationRepository, CalculateCarbone $calculateCarbonne): Response
     {
-        $reservations = $reservationRepository->findAll();
-        $sentence = 'Véhicule déjà réservé !';
 
         return $this->render('vehicule/show.html.twig', [
             'vehicule' => $vehicule,
+            'calculateCarbonne' => $calculateCarbonne->calculate($vehicule),
+            'carbonneBykm' => $calculateCarbonne->calculateByKm($vehicule)
         ]);
     }
 
