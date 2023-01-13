@@ -9,6 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class ReservationType extends AbstractType
 {
@@ -23,8 +24,8 @@ class ReservationType extends AbstractType
                 'choice_label' => 'lastname',
                 'class' => User::class
                 ])
-            ->add('date')
-            ->add('datedefin');
+            ->add('debut', DateType::class)
+            ->add('fin');
     }
 
     public function configureOptions(OptionsResolver $resolver): void
