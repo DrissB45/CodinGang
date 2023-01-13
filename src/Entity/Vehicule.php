@@ -133,9 +133,11 @@ class Vehicule
         return $this->carbonne;
     }
 
-    public function setCarbonne(?int $carbonne): self
+    public function setCarbonne(?int $carbonne)
     {
         $this->carbonne = $carbonne;
+    }
+
     public function isIsReserved(): ?bool
     {
         return $this->isReserved;

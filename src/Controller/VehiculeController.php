@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Vehicule;
 use App\Service\CalculateCarbone;
-use App\Repository\VehiculeRepository;
 use App\Entity\Reservation;
 use App\Form\ReservationType;
 use App\Service\CheckReservation;

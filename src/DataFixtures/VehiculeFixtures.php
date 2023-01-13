@@ -23,6 +23,7 @@ class VehiculeFixtures extends Fixture
             $vehicule1->setEtat('Très bon état');
             $vehicule1->setKilometrage($faker->numberBetween(200, 10000));
             $vehicule1->setIsReserved(false);
+            $vehicule1->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule1);
 
             $vehicule2 = new Vehicule;
@@ -34,6 +35,7 @@ class VehiculeFixtures extends Fixture
             $vehicule2->setEtat('Bon état');
             $vehicule2->setKilometrage($faker->numberBetween(200, 10000));
             $vehicule2->setIsReserved(false);
+            $vehicule2->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule2);
 
             $vehicule3 = new Vehicule;
@@ -45,6 +47,7 @@ class VehiculeFixtures extends Fixture
             $vehicule3->setEtat('Très bon état');
             $vehicule3->setKilometrage($faker->numberBetween(300, 10000));
             $vehicule3->setIsReserved(false);
+            $vehicule3->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule3);
 
             $vehicule4 = new Vehicule;
@@ -56,6 +59,7 @@ class VehiculeFixtures extends Fixture
             $vehicule4->setEtat('Moyen');
             $vehicule4->setKilometrage($faker->numberBetween(100, 10000));
             $vehicule4->setIsReserved(false);
+            $vehicule4->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule4);
 
             $vehicule5 = new Vehicule;
@@ -67,6 +71,7 @@ class VehiculeFixtures extends Fixture
             $vehicule5->setEtat('Bon état');
             $vehicule5->setKilometrage($faker->numberBetween(100, 10000));
             $vehicule5->setIsReserved(false);
+            $vehicule5->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule5);
 
             $vehicule6 = new Vehicule;
@@ -78,6 +83,7 @@ class VehiculeFixtures extends Fixture
             $vehicule6->setEtat('Très bon état');
             $vehicule6->setKilometrage($faker->numberBetween(100, 10000));
             $vehicule6->setIsReserved(false);
+            $vehicule6->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule6);
 
             $vehicule7 = new Vehicule;
@@ -89,6 +95,7 @@ class VehiculeFixtures extends Fixture
             $vehicule7->setEtat('Bon état');
             $vehicule7->setKilometrage($faker->numberBetween(100, 10000));
             $vehicule7->setIsReserved(false);
+            $vehicule7->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule7);
 
             $vehicule8 = new Vehicule;
@@ -100,6 +107,7 @@ class VehiculeFixtures extends Fixture
             $vehicule8->setEtat('Moyen');
             $vehicule8->setKilometrage($faker->numberBetween(100, 10000));
             $vehicule8->setIsReserved(false);
+            $vehicule8->setCarbonne($faker->numberBetween(500, 10000));
             $manager->persist($vehicule8);
 
             $manager->flush();
