@@ -14,7 +14,7 @@
     background-size: cover;
 }
 
-h1 {
+.title {
     font-family: $font-title;
     color: $primary;
     text-shadow: 0.1px 0.1px $dark;
@@ -26,6 +26,6 @@ h1 {
     position: absolute;
     top: 15px;
     justify-content: end;
-    transform: translate(100px,100px);
+    transform: translate(100px, 100px);
     transition: width 1s ease-in;
 }
