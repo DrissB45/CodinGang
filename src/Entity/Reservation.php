@@ -18,10 +18,10 @@ class Reservation
     private ?User $driver = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    private ?\DateTimeInterface $debut = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $datedefin = null;
+    private ?\DateTimeInterface $fin = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
     private ?Vehicule $car = null;
@@ -43,26 +43,26 @@ class Reservation
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getDebut(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->debut;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setDebut(\DateTimeInterface $debut): self
     {
-        $this->date = $date;
+        $this->debut = $debut;
 
         return $this;
     }
 
-    public function getDatedefin(): ?\DateTimeInterface
+    public function getFin(): ?\DateTimeInterface
     {
-        return $this->datedefin;
+        return $this->fin;
     }
 
-    public function setDatedefin(\DateTimeInterface $datedefin): self
+    public function setFin(\DateTimeInterface $fin): self
     {
-        $this->datedefin = $datedefin;
+        $this->fin = $fin;
 
         return $this;
     }

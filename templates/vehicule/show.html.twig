@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %}
 
-
 {% block stylesheets %}
 	{{ encore_entry_link_tags('app') }}
 {% endblock %}
 
 {% block body %}
-
 	<div class="container">
 
 		<a type="button" href="{{ path('vehicule_index')}}" class="btn btn-light mt-3">
@@ -21,6 +19,7 @@
 				<p class="text-secondary text-center fs-3">Véhicule déjà réservé !</p>
 			{% endif %}
 		</header>
+
 		<img class="imgCard img-fluid mt-3 mx-auto d-block" src="{{ asset('build/images/hackathon.jpg') }}"></img>
 	<div class="strong card bord mt-5">
 		<div class="mx-5">
@@ -66,7 +65,13 @@
 	</div>
 	{% if vehicule.isreserved == false %}
 		<div class="d-flex justify-content-center">
-			<a class="btn btn-secondary btn-lg mt-5 align--center" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
+			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
 		</div>
-	{% endif %}
-</div>{% endblock %}
+	{% else %}
+		<div class="d-flex justify-content-center">
+			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_index") }}">Retourner au catalogue</a>
+		</div>
+		{% endif %}
+
+	</div>
+{% endblock %}
