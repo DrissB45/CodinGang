@@ -13,13 +13,18 @@
 
 {% block body %}
 	{% if app.user %}
-		<div class="presentation bg-secondary d-flex justify-content-center align-items-center">
+		<div class="presentation bg-secondary d-flex flex-column justify-content-center align-items-center">
 			<h3 class="text-center">Bienvenue
 				{{app.user.firstname}}
 				{{app.user.lastname}}
 				!</h3>
+			{% if app.user.hasreserved == true %}
+			<a href="{{ path("vehicule_bookings") }}">Voir vos réservations</a>
+			{% else %}
+				<p>Vous n'avez aucune réservation en cours.</p>
+			{% endif %}
+			{% endif %}
 		</div>
-	{% endif %}
 
 	<h1 class="title-catalog text-center text-secondary display-1 my-5">Catalogue</h1>
 
@@ -58,4 +63,4 @@
 			</div>
 		</div>
 	</div>
-</div>{% endblock %}
+{% endblock %}

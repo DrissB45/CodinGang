@@ -35,6 +35,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $lastname = null;
 
+    #[ORM\Column]
+    private ?bool $hasReserved = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -125,6 +128,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastname(string $lastname): self
     {
         $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function isHasReserved(): ?bool
+    {
+        return $this->hasReserved;
+    }
+
+    public function setHasReserved(bool $hasReserved): self
+    {
+        $this->hasReserved = $hasReserved;
 
         return $this;
     }

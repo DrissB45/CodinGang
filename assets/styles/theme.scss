@@ -24,7 +24,7 @@ h1 {
 }
 
 h2 {
-    font-size: 80px;
+    font-family: $font-title;
 }
 
 h3 {
@@ -33,4 +33,14 @@ h3 {
 
 ul li {
     font-size: 50px;
+
 }
+
+p {
+    font-size: 20px;
+}
+
+a {
+    font-size: 20px;
+}
+
