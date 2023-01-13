@@ -20,7 +20,7 @@
 					<input type="password" class="form-control" id="password" name="_password">
 				</div>
 				<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-				<input type="hidden" name="_target_path" value="#">
+				<input type="hidden" name="_target_path" value="{{ path('vehicule_index') }}">
 
 				<button type="submit" class="btn btn-primary btn-lg m-auto mb-5 mt-3">Se connecter</button>
 			</form>

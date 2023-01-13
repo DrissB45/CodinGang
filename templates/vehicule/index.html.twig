@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Catalog
+{% block title %}Catalogue
 {% endblock %}
 
 {% block stylesheets %}
@@ -8,6 +8,14 @@
 {% endblock %}
 
 {% block body %}
+	{% if app.user %}
+		<div class="presentation bg-secondary d-flex justify-content-center align-items-center">
+			<h3 class="text-center">Bienvenue
+				{{app.user.firstname}} {{app.user.lastname}}
+				!</h3>
+		</div>
+	{% endif %}
+
 	<h1 class="title-catalog text-center text-secondary display-1 my-5">Catalogue</h1>
 	<div class="container-fluid">
 		<div class="row row-cols-2 mx-5">
