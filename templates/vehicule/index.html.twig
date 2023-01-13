@@ -8,19 +8,21 @@
 {% endblock %}
 
 {% block body %}
-	{% if app.user %}
-		<div class="presentation bg-secondary d-flex flex-column justify-content-center align-items-center">
-			<h3 class="text-center">Bienvenue
-				{{app.user.firstname}}
-				{{app.user.lastname}}
-				!</h3>
-			{% if app.user.hasreserved == true %}
-				<a href="{{ path("vehicule_bookings") }}">Voir vos réservations</a>
-			{% else %}
-				<p>Vous n'avez aucune réservation en cours.</p>
-			{% endif %}
+	<div class="presentation bg-secondary d-flex flex-column justify-content-center align-items-center">
+		<h3 class="text-center">Bienvenue
+			{{app.user.firstname}}
+			{{app.user.lastname}}
+			!</h3>
+		{% if app.user.hasreserved == true %}
+			<a href="{{ path("vehicule_bookings") }}">Voir vos réservations</a>
+		{% else %}
+			<p>Vous n'avez aucune réservation en cours.</p>
 		{% endif %}
-	</div>
+		{% if is_granted('ROLE_ADMIN') %}
+			<a href="{{ path('app_vehicule_admin_index') }}">Espace Admin</a>
+		{% endif %}
+		<a href="{{ path('app_logout' )}}">Se déconnecter</a>
+  	</div>
 
 	<h1 class="title-catalog text-center text-secondary display-6 my-5">Catalogue</h1>
 
