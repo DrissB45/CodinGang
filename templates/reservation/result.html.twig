@@ -6,11 +6,16 @@
 {% block body %}
 	<h1 class="text-center text-secondary mt-5 fs-1">Votre véhicule est réservé !</h1>
 	<div class="login border rounded-2 border-secondary bg-light shadow mx-2">
-		<h1>Merci !</h1>
-        <p>Nous confirmons la réservation de votre véhicule. Voici les détails de la réservation :</p>
-        <p>Modèle : {{reservation.car.marque}}</p>
-        <p>Date de début : {{reservation.date|date('Y-m-d')}}</p>
-        <p>Date de fin : {{reservation.datedefin|date('Y-m-d')}}</p>
+		<h1 class="text-center">Merci !</h1>
+		<p>Nous confirmons la réservation de votre véhicule. Voici les détails de la réservation :</p>
+		<p>Modèle :
+			{{reservation.car.marque}}</p>
+		<p>Date de début :
+			{{reservation.date|date('Y-m-d')}}</p>
+		<p>Date de fin :
+			{{reservation.datedefin|date('Y-m-d')}}</p>
 	</div>
 </div>
-{% endblock %}
+<div class="d-flex justify-content-center">
+	<a class="btn btn-secondary btn-lg mt-5" href="{{ path("vehicule_index") }}">Retourner au catalogue</a>
+</div>{% endblock %}

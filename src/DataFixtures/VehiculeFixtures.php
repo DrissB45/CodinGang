@@ -95,7 +95,7 @@ class VehiculeFixtures extends Fixture
             $vehicule8->setMarque('Audi R8');
             $vehicule8->setVolume(62);
             $vehicule8->setCarburant('Diesel');
-            $vehicule8->setImage('Yolo');
+            $vehicule8->setImage('yolo');
             $vehicule8->setAnnee(2018);
             $vehicule8->setEtat('Moyen');
             $vehicule8->setKilometrage($faker->numberBetween(100, 10000));
