@@ -24,8 +24,14 @@
 
 .next {
     position: absolute;
-    top: 15px;
+    top: 90px;
     justify-content: end;
     transform: translate(100px, 100px);
     transition: width 1s ease-in;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-self: center;
 }
