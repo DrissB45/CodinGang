@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	{{ encore_entry_link_tags('app') }}
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+
+		<a type="button" href="{{ path('vehicule_index')}}" class="btn btn-light mt-3">
+			<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-arrow-left-short" viewbox="0 0 16 16">
+				<path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+			</svg>
+		</a>
+
+		<header>
+			<h1 class="view d-flex justify-content-center text-light mt-5 display-6">{{vehicule.marque}}</h1>
+			{% if vehicule.isreserved == true %}
+				<p class="text-secondary text-center fs-3">Véhicule déjà réservé !</p>
+			{% endif %}
+		</header>
+
+		<img class="imgCard img-fluid mt-3 mx-auto d-block" src="{{ asset('build/images/hackathon.jpg') }}"></img>
+	<div class="strong card bord mt-5">
+		<div class="mx-5">
+			<h2 class="details my-3 fs-4 text-center">Fiche technique</h2>
+		</div>
+		<div class="d-flex align-items-center justify-content-between col mx-auto mb-3">
+			<div class="card-text years d-flex flex-column justify-content-between px-2 fs-3">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="svg bi bi-car-front mt-3 align-self-center" viewbox="0 0 16 16">
+					<path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2H6ZM4.862 4.276 3.906 6.19a.51.51 0 0 0 .497.731c.91-.073 2.35-.17 3.597-.17 1.247 0 2.688.097 3.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 10.691 4H5.309a.5.5 0 0 0-.447.276Z"/>
+					<path d="M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679c.033.161.049.325.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.807.807 0 0 0 .381-.404l.792-1.848ZM4.82 3a1.5 1.5 0 0 0-1.379.91l-.792 1.847a1.8 1.8 0 0 1-.853.904.807.807 0 0 0-.43.564L1.03 8.904a1.5 1.5 0 0 0-.03.294v.413c0 .796.62 1.448 1.408 1.484 1.555.07 3.786.155 5.592.155 1.806 0 4.037-.084 5.592-.155A1.479 1.479 0 0 0 15 9.611v-.413c0-.099-.01-.197-.03-.294l-.335-1.68a.807.807 0 0 0-.43-.563 1.807 1.807 0 0 1-.853-.904l-.792-1.848A1.5 1.5 0 0 0 11.18 3H4.82Z"/>
+				</svg>
+				<dt class="list-group-item text-center">Année</dt>
+				<dd class="state text-center">{{vehicule.annee}}</dd>
+			</div>
+
+			<div class="card-text years d-flex flex-column justify-content-between px-2 fs-3">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="svg bi bi-lightning-charge mt-3 align-self-center" viewbox="0 0 16 16">
+					<path d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z"/>
+				</svg>
+				<dt class="list-group-item text-center">Carburant</dt>
+				<dd class="state text-center">{{vehicule.carburant}}</dd>
+			</div>
+
+			<div class="card-text years d-flex flex-column justify-content-between px-2 fs-3">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="svg bi bi-speedometer2 mt-3 align-self-center" viewbox="0 0 16 16">
+					<path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"/>
+					<path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"/>
+				</svg>
+				<dt class="list-group-item text-center">Etat</dt>
+				<dd class="state text-center">{{vehicule.etat}}</dd>
+			</div>
+			<div class="card-text years d-flex flex-column justify-content-between px-2 fs-3">
+				<dt class="list-group-item">Emission C02</dt>
+				<dd>{{vehicule.carbonne}}</dd>
+			</div>
+			<div class="card-text years d-flex flex-column justify-content-between px-2 fs-3">
+				<dt class="list-group-item">Emission C02 au km</dt>
+				<dd>{{carbonneBykm}}</dd>
+			</div>
+
+		</div>
+
+	</div>
+	{% if vehicule.isreserved == false %}
+		<div class="d-flex justify-content-center mb-4">
+			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_reservation", {id: vehicule.id}) }}">Réserver ce véhicule</a>
+		</div>
+	{% else %}
+		<div class="d-flex justify-content-center mb-4">
+			<a class="btn btn-secondary btn-lg my-5" href="{{ path("vehicule_index") }}">Retourner au catalogue</a>
+		</div>
+		{% endif %}
+
+	</div>
+{% endblock %}

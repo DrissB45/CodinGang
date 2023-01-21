@@ -11,9 +11,16 @@ Encore
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
     .setPublicPath('/build')
+    .copyFiles({
+        from: "./assets/images",
+        to: "images/[path][name].[hash:8].[ext]",
+    })
     // only needed for CDN's or subdirectory deploy
     //.setManifestKeyPrefix('build/')
-
+    .copyFiles({
+        from:"./assets/images",
+        to: "images/[path][name].[hash:8].[ext]",
+    })
     /*
      * ENTRY CONFIG
      *
@@ -72,7 +79,7 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
 
-.enableSassLoader();
+    .enableSassLoader();
 const fullConfig = Encore.getWebpackConfig();
 fullConfig.devServer = {
     headers: {
